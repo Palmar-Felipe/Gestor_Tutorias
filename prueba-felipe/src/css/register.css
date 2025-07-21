@@ -1,0 +1,72 @@
+
+body{
+    background-image: url(../img/143265.webp);
+    background-size: cover;
+    
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: calc(100vh - 80px);
+  padding: 0 60px;
+  
+}
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+.right .login-box {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+}
+
+.login-box h2 {
+  margin-bottom: 20px;
+  color: #c39bd3;
+}
+
+.login-box input {
+  display: block;
+  align-items: center;
+  width: 90%;
+  height: 30px;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.login-btn {
+    align-items: center;
+  width: 50%;
+  padding: 10px;
+  background-color: #c39bd3;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.signup-text,
+.social-text {
+  margin: 15px 0 5px;
+}
+
+.signup-text a {
+  color: #c39bd3;
+  text-decoration: none;
+}
+
+p{
+    color: white    ;
+}
