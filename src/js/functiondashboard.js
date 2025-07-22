@@ -87,6 +87,7 @@ export function afterDashboard() {
           const btnEliminarOculto = card.querySelector(".btn-eliminar");
 
           if(btnEditarOculto) btnEditarOculto.style.display = "none";
+          if (btnEliminarOculto) btnEliminarOculto.style.display = "none";
         }
 
       btnEditar.addEventListener("click", () => {
