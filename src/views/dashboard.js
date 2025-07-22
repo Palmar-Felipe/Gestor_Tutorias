@@ -7,7 +7,7 @@ export function renderDashboard() {
         <section id="todo" class="cursos-section">
             <button id="cerrar-sesion" class="btn-cerrar-sesion">Cerrar sesión</button>
 
-              <h2 class="titulo">proximas tutorías</h2>
+              <h2 class="titulo">Próximas Tutorías</h2>
 
               <button class="btn-crear-curso" id="btn-crear">Crear nueva tutoria</button>
 
