@@ -22,7 +22,7 @@ export function afterRegister(){
             correo: $email.value,
             documento: $cedula.value,
             contrasena: $password.value,
-            rol: "usuario"
+            rol: "coder"
         }
 
         if (

@@ -18,7 +18,7 @@ body {
 
 .titulo {
   font-size: 50px;
-  color: #c39bd3;
+  color: white;
   margin-top: 10%;
   margin-bottom: 20px;
 } 
@@ -46,7 +46,7 @@ body {
 }
 
 .curso-card h3 {
-  color: #c39bd3;
+  color: #8e44ad ;
   margin-bottom: 10px;
 }
 
@@ -58,7 +58,7 @@ body {
 
 .curso-card button {
   padding: 10px 20px;
-  background-color: #c39bd3;
+  background-color: #8e44ad ;
   color: white;
   border: none;
   border-radius: 5px;
@@ -86,7 +86,7 @@ body {
   display: block;
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #c39bd3;
+  background-color: #8e44ad ;
   color: white;
   border: none;
   border-radius: 6px;
@@ -112,7 +112,7 @@ a {
   position: absolute;
   top: 20px;
   right: 20px;
-  background-color: #c39bd3;
+  background-color: #8e44ad ;
   color: white;
   border: none;
   padding: 10px 15px;
@@ -143,7 +143,7 @@ a {
 }
 
 #form-curso button[type="submit"] {
-  background-color: #c39bd3;
+  background-color: #8e44ad ;
   color: white;
   border: none;
   padding: 10px;

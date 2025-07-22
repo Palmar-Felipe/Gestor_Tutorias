@@ -3,7 +3,6 @@ import { renderStart } from "../views/start";
 const URL = "http://localhost:3000/lenguajes"; // Cambia a tu colección real
 export function afterDashboard(){
     const grid = document.getElementById("cursos-grid");
-    const btnCrear = document.getElementById("btn-crear");
     const form = document.getElementById("form-curso");
     const nombre = document.getElementById("nombre-lenguaje");
     const descripcion = document.getElementById("descripcion-lenguaje");
@@ -12,6 +11,18 @@ export function afterDashboard(){
     let modoEditar = false;
     let idEditar = null;
 
+    const btnCrear = document.getElementById("btn-crear");
+    
+    const show = JSON.parse(localStorage.getItem("usuario"));
+
+    if (show && show.rol === "coder"){
+        const btnCrearOculto =document.getElementById("btn-crear")
+
+        if (btnCrearOculto)btnCrearOculto.style.display="none";
+    }
+
+
+    
     document.getElementById("cerrar-sesion").addEventListener("click", (e) => {
         e.preventDefault();
         localStorage.removeItem("usuario");
