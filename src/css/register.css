@@ -46,15 +46,24 @@ main {
 }
 
 .login-btn {
-    align-items: center;
+  align-items: center;
   width: 50%;
   padding: 10px;
-  background-color: #8e44ad;
+  background: linear-gradient(to right, #8e44ad, #6c5ce7); /* degradado elegante */
   border: none;
   color: white;
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* sombra ligera */
+}
+
+/* Hover: mejora visual y sensación interactiva */
+.login-btn:hover {
+  background: linear-gradient(to left, #6c5ce7, #8e44ad); /* efecto inverso */
+  transform: scale(1.05); /* ligero zoom */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* sombra más definida */
 }
 
 .signup-text,
@@ -69,4 +78,66 @@ main {
 
 p{
     color: white    ;
+}
+
+/* Teléfonos pequeños */
+@media screen and (max-width: 600px) {
+  body {
+    background-position: center;
+  }
+
+  main {
+    flex-direction: column;
+    padding: 20px;
+    height: auto;
+  }
+
+  .right .login-box {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .login-box input {
+    width: 100%;
+  }
+
+  .login-btn {
+    width: 100%;
+  }
+}
+
+/* Tablets */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  main {
+    flex-direction: column;
+    padding: 40px;
+    height: auto;
+  }
+
+  .right .login-box {
+    width: 70%;
+  }
+
+  .login-box input {
+    width: 95%;
+  }
+
+  .login-btn {
+    width: 80%;
+  }
+}
+
+/* Pantallas grandes */
+@media screen and (min-width: 1025px) {
+  .right .login-box {
+    width: 300px;
+  }
+
+  .login-box input {
+    width: 90%;
+  }
+
+  .login-btn {
+    width: 50%;
+  }
 }

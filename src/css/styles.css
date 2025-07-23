@@ -15,32 +15,67 @@ body {
   color: white;
 }
 
-header {
+
+.main-layout {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+img{
+  border-radius: 100px;
+}
+
+/* Lado izquierdo: logo */
+.logo-container {
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px 60px;
-  background-color: rgba(0, 0, 0, 0.5);
 }
 
-
-
+/* Logo */
 .logo {
-  font-size: 28px;
-  font-weight: bold;
-  color: orange;
+  width: 300px;
+  height: auto;
+  animation: slideDownFade 1.2s ease-out forwards;
 }
+
+
+@keyframes slideDownFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* Lado derecho */
+.content-right {
+  flex: 2;
+  padding: 1rem 2rem;
+  color: white;
+}
+
+
+/* Columna derecha (texto y botón) */
+.content-right {
+  flex: 2;
+  padding: 1rem 2rem;
+}
+
+
 .dot {
   color: #fff;
 }
 
-nav a {
-  margin: 0 15px;
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
- justify-content: center;
-}
+
 
 .search-box input {
   padding: 5px;
@@ -76,8 +111,13 @@ main {
 
 /* Estilos existentes que puedes mantener */
 .highlight {
-  color: #8e44ad;
-  font-size: 48px;
+  font-size: 5rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #8e44ad,  #375cc2); /* colores del texto */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .message {
@@ -101,12 +141,13 @@ main {
 
 .join-btn {
   padding: 10px 20px;
-  background-color: #8e44ad;
+  background: linear-gradient(to right, #8e44ad,  #375cc2); 
   border: none;
   color: white;
   font-weight: bold;
   cursor: pointer;
-  border-radius: 3px;
+  font-size: 1rem;
+  border-radius: 10px;
 }
 
 
@@ -121,6 +162,7 @@ main {
   max-width: 700px;
   margin: 1rem auto;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  text-align: left;
   
 }
 
@@ -129,4 +171,60 @@ main {
   margin-top: 0.5rem;
   color: #8e44ad;
   font-weight: bold;
+}
+
+/* Responsivo para dispositivos pequeños (teléfonos) */
+@media screen and (max-width: 600px) {
+  .main-layout {
+    flex-direction: column;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .logo {
+    width: 200px;
+  }
+
+  .content-right, .logo-container {
+    flex: unset;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .highlight {
+    font-size: 2.5rem;
+  }
+
+  .content-rigth {
+    margin-right: 0;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  main {
+    flex-direction: column;
+    padding: 1rem;
+  }
+}
+
+/* Responsivo para tablets */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  .logo {
+    width: 250px;
+  }
+
+  .highlight {
+    font-size: 4rem;
+  }
+
+  .main-layout {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1rem;
+  }
+
+  .content-rigth {
+    margin-right: 0;
+    max-width: 100%;
+  }
 }

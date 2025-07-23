@@ -18,9 +18,15 @@ body {
 
 .title {
   font-size: 50px;
-  color: white;
   margin-top: 10%;
   margin-bottom: 20px;
+  font-weight: bold;
+  background: linear-gradient(to right, #8e44ad,  #2a57d1); /* colores del texto */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
 } 
 
 .courses-grid {

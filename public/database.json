@@ -17,6 +17,15 @@
       "documento": "12111",
       "contrasena": "1",
       "rol": "admin"
+    },
+    {
+      "id": "6b23",
+      "name": "yoshira barros",
+      "user": "yoshira",
+      "email": "yoshira@gmail.com",
+      "doc": "3122",
+      "password": "yoshi123",
+      "rol": "coder"
     }
   ],
   "lenguajes": [
