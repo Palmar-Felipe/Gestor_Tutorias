@@ -6,7 +6,7 @@ import { renderDashboard } from "./src/views/dashboard";
 import { render404 } from "./src/views/404";
 import { afterDashboard } from "./src/js/functiondashboard";
 import { afterRegister } from "./src/js/funtionregister";
-
+import {} from "./src/js/guardian"
 
 
 
