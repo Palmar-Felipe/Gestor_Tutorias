@@ -15,7 +15,7 @@ export function afterLogin() {
     const $email = document.getElementById("login-email");
     const $password = document.getElementById("login-password");
     const $enter = document.getElementById("send");
-    console.log("imputs data loaded")
+    console.log("imputs data loaded");
 
     // Validation of the correct existance of the form
     if (!$email || !$password) {
@@ -52,7 +52,7 @@ export function afterLogin() {
                 .catch(error => {
                     console.error('There has been a problem with your fetch operation:', error);
                 });
-            console.log("the data has been seen")
+            console.log("the data has been seen");
 
             const user = users.find((u) => u.email.toLowerCase() === email.toLowerCase());
 
@@ -60,7 +60,7 @@ export function afterLogin() {
             if (!user || user.password !== password) {
                 alert("It seems that there's an error on the data.");
                 return;
-            }
+            };
 
             //make a fake token and encrypt
             const fakeToken = `${user.username}-${Date.now()}`;
@@ -72,37 +72,6 @@ export function afterLogin() {
         } catch (error) {
             console.error("login error:", error);
             alert("Login failed. Please try again later.");
-        }
+        };
     });
-}
-
-//     });
-
-//     //Function to handle the login process, including validations.
-//     async function login() {
-
-//         if ($email.value === "" || $password.value === "") {
-//             alert("Por favor, completa todos los campos.");
-//             return; // Evita que siga ejecutando si están vacíos
-//         };
-
-//         const search = await fetch(`${url}?email=${$email.value.trim()}`);
-//         const response = await search.json();
-
-//         if(response.length === 0){
-//             alert("Este usuario no existe, por favor regístrese");
-
-//         }else{
-//             if(response[0].password === $password.value.trim()){
-//                 localStorage.setItem("usuario", JSON.stringify(response[0]));
-//                 alert ("inicio de sesion correcto")
-//                 window.location.href ="/dashboard";
-//             }else{
-//                 alert("contraseña incorrecta")
-//             };
-//         };
-//     };
-// };
-
-
-
+};
