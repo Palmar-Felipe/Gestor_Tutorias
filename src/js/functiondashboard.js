@@ -90,6 +90,20 @@ export function afterDashboard() {
                 <button class="btn-delete">Eliminar</button>
             `;
 
+      const btnSubs = card.querySelector(".btn-subscrib");
+
+      const showContentAdmin = JSON.parse(localStorage.getItem("usuario"));
+
+      if( showContentAdmin && showContentAdmin.role === "admin") {
+        const btnSubsHidden = card.querySelector(".btn-subscrib");
+        if (btnSubsHidden) btnSubsHidden.style.display = "none";
+      }
+      
+      btnSubs.addEventListener("click", async (i) => {
+        i.preventDefault();
+        alert("Inscripción exitosa");
+      });
+
       //Edit and delete functionality for each course.
       const btnEdit = card.querySelector(".btn-edit");
       const btnDelete = card.querySelector(".btn-delete");
