@@ -1,5 +1,6 @@
+//Error 404 Not Found view.
 
-
+//This exported function renders to a 404 error message on the element with id "app".
 export function render404() {
   const app = document.getElementById("app")
   app.innerHTML=`

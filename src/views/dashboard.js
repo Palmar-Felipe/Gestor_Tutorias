@@ -1,25 +1,26 @@
+//Dashboard view.
 
-
+//This exported function renders the dashboard view on the element with id "app".
 export function renderDashboard() {
   const app = document.getElementById("app")
   app.innerHTML=`
     <main>
-        <section id="todo" class="cursos-section">
-            <button id="cerrar-sesion" class="btn-cerrar-sesion">Cerrar sesión</button>
+        <section id="all-content" class="courses-section">
+            <button id="log-out" class="btn-log-out">Cerrar sesión</button>
 
-              <h2 class="titulo">Próximas Tutorías</h2>
+              <h2 class="title">Próximas Tutorías</h2>
 
-              <button class="btn-crear-curso" id="btn-crear">Crear nueva tutoria</button>
+              <button class="btn-create-course" id="btn-create">Crear nueva tutoria</button>
 
-              <form id="form-curso" style="display: none;">
-                <input type="text" id="nombre-lenguaje" placeholder="Nombre del evento" required />
-                <input type="text" id="descripcion-lenguaje" placeholder="Descripción del evento" required />
-                <input type="text" id="imagen-lenguaje" placeholder="URL de la imagen" required />
+              <form id="form-course" style="display: none;">
+                <input type="text" id="language-name" placeholder="Nombre de la tutoría" required />
+                <input type="text" id="language-description" placeholder="Descripción de la tutoría" required />
+                <input type="text" id="language-image" placeholder="URL de la imagen" required />
                 <button type="submit">Guardar lenguaje</button>
               </form>
 
-              <section class="cursos-section">
-                <div class="cursos-grid" id="cursos-grid">
+              <section class="courses-section">
+                <div class="courses-grid" id="courses-grid">
                 </div>
               </section>    
         </section>

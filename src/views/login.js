@@ -1,7 +1,6 @@
+//Login view.
 
-
-
-
+//This exported function renders the login view on the element with id "app".
 export function renderLogin() {
   const app = document.getElementById("app")
   app.innerHTML=`

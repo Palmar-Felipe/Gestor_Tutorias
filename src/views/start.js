@@ -1,15 +1,15 @@
+//Home view.
 
-//home section
+//This exported function renders the home view on the element with id "app".
 export function renderStart() {
   const app = document.getElementById("app")
-  //home view
   app.innerHTML = `
   
   
    <main>
-      <section class="contenido-derecha">
+      <section class="content-right">
         <h1><span class="highlight">InnovaCode</span></h1>
-        <p class="mensaje">
+        <p class="message">
           Donde las ideas se convierten en código, y el código en futuro.
           Innovamos, diseñamos y construimos el software que mueve al mundo digital.
           Únete al cambio. Crea sin límites.
