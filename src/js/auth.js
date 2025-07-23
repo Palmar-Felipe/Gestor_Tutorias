@@ -1,13 +1,13 @@
 import CryptoJS from 'crypto-js';
-import {renderStart} from '../views/start';
+import { renderStart } from '../views/start';
 
 const USER_KEY = 'user';
 const TOKEN_KEY = 'token';
-const SECRET = 'riwi.doe2'; 
+const SECRET = 'riwi.doe2';
 
 export const auth = {
     login(token, user) {
-        
+
         // Encript and save
         const encryptedToken = CryptoJS.AES.encrypt(token, SECRET).toString();
         const encryptedUser = CryptoJS.AES.encrypt(JSON.stringify(user), SECRET).toString();

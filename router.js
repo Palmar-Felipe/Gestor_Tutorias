@@ -6,50 +6,57 @@ import { renderDashboard } from "./src/views/dashboard";
 import { render404 } from "./src/views/404";
 import { afterDashboard } from "./src/js/functiondashboard";
 import { afterRegister } from "./src/js/funtionregister";
-import {} from "./src/js/guardian"
+import { guard } from "./src/js/guardian"
 
 
 
-const routes ={
-    "/":{
+const routes = {
+    "/": {
         showView: renderStart,
         private: false
     },
-    "/start":{
+    "/start": {
         showView: renderStart,
         private: false
     },
-    "/register":{
+    "/register": {
         showView: renderRegister,
         afterRender: afterRegister,
         private: false
     },
-    "/login":{
+    "/login": {
         showView: renderLogin,
         afterRender: afterLogin,
         private: false
     },
-    "/dashboard":{
+    "/dashboard": {
         showView: renderDashboard,
         afterRender: afterDashboard,
         private: false
     },
-   
+
 }
 
 
 export function router() {
+    // Validación con guardia
+    const canActivate = guard();
+    if (!canActivate) {
+        // El guard ya redirigió, pero debemos reejecutar el router manualmente
+        router(); // ⚠️ ¡Esta línea es CLAVE!
+        return;
+    };
+    
     const path = window.location.pathname || '/';
     const app = document.getElementById('app');
-    const currentRoute =routes[path];
+    const currentRoute = routes[path];
 
-    if (currentRoute){
-        app.innerHTML= currentRoute.showView ;
-        if(typeof currentRoute.afterRender === 'function'){
+    if (currentRoute) {
+        app.innerHTML = currentRoute.showView;
+        if (typeof currentRoute.afterRender === 'function') {
             currentRoute.afterRender();
         }
-    }else{
-        app.innerHTML= render404;
+    } else {
+        app.innerHTML = render404;
     }
-    
-}   
+}
