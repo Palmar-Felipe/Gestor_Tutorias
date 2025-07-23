@@ -4,7 +4,7 @@
 import { renderStart } from "../views/start";
 
 //Endpoint URL for the courses.
-const URL = "http://localhost:3000/lenguajes"; // This changes to your API endpoint
+const URL = "http://localhost:3000/languages"; // This changes to your API endpoint
  
 //Exported function of the dashboard functionality.
 export function afterDashboard() {
@@ -22,7 +22,7 @@ export function afterDashboard() {
 
   const show = JSON.parse(localStorage.getItem("usuario"));
 
-  if (show && show.rol === "coder") {
+  if (show && show.role === "coder") {
     const btnCreateHidden = document.getElementById("btn-create");
 
     if (btnCreateHidden) btnCreateHidden.style.display = "none";
@@ -42,7 +42,9 @@ export function afterDashboard() {
   });
 
   //Form to edit a course.
-  form.addEventListener("submit", async () => {
+  form.addEventListener("submit", async (a) => {
+    a.preventDefault();
+
     const newCourse = {
       name: name.value,
       description: description.value,
@@ -84,9 +86,23 @@ export function afterDashboard() {
                 <img src="${course.image}" alt="imagen de ${course.name}">
                 <p>${course.description}</p>
                 <button class="btn-edit">Editar</button>
-                <button class="btn-edit">inscribirse</button>
+                <button class="btn-subscrib">inscribirse</button>
                 <button class="btn-delete">Eliminar</button>
             `;
+
+      const btnSubs = card.querySelector(".btn-subscrib");
+
+      const showContentAdmin = JSON.parse(localStorage.getItem("usuario"));
+
+      if( showContentAdmin && showContentAdmin.role === "admin") {
+        const btnSubsHidden = card.querySelector(".btn-subscrib");
+        if (btnSubsHidden) btnSubsHidden.style.display = "none";
+      }
+      
+      btnSubs.addEventListener("click", async (i) => {
+        i.preventDefault();
+        alert("Inscripción exitosa");
+      });
 
       //Edit and delete functionality for each course.
       const btnEdit = card.querySelector(".btn-edit");
@@ -94,7 +110,7 @@ export function afterDashboard() {
 
       const showContent = JSON.parse(localStorage.getItem("usuario"));
 
-        if (showContent && showContent.rol === "coder") {
+        if (showContent && showContent.role === "coder") {
           const btnEditHidden = card.querySelector(".btn-edit");
           const btnDeleteHidden = card.querySelector(".btn-delete");
 
