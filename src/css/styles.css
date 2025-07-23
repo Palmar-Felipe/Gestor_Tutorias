@@ -66,7 +66,7 @@ main {
   padding: 0 60px;            
 }
 
-.contenido-derecha {
+.content-rigth {
   display: flex;
   flex-direction: column; 
   text-align: center;
@@ -80,7 +80,7 @@ main {
   font-size: 48px;
 }
 
-.mensaje {
+.message {
   background: rgba(0, 0, 0, 0.5);
   padding: 1.5rem;
   border-radius: 12px;
@@ -111,7 +111,7 @@ main {
 
 
 
-.mensaje {
+.message {
   background: rgba(0, 0, 0, 0.5); /* fondo oscuro semitransparente */
   padding: 1.5rem;
   border-radius: 12px;
@@ -124,7 +124,7 @@ main {
   
 }
 
-.mensaje .hashtag {
+.message .hashtag {
   display: block;
   margin-top: 0.5rem;
   color: #c39bd3;
