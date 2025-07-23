@@ -1,108 +1,120 @@
+//This file shows the code for the dashboard functionality.
+
+//Imported view rendering function.
 import { renderStart } from "../views/start";
 
-const URL = "http://localhost:3000/lenguajes"; // Cambia a tu colección real
+//Endpoint URL for the courses.
+const URL = "http://localhost:3000/lenguajes"; // This changes to your API endpoint
+ 
+//Exported function of the dashboard functionality.
 export function afterDashboard() {
-  const grid = document.getElementById("cursos-grid");
-  const form = document.getElementById("form-curso");
-  const nombre = document.getElementById("nombre-lenguaje");
-  const descripcion = document.getElementById("descripcion-lenguaje");
-  const imagen = document.getElementById("imagen-lenguaje");
+  const grid = document.getElementById("courses-grid");
+  const form = document.getElementById("form-course");
+  const name = document.getElementById("language-name");
+  const description = document.getElementById("language-description");
+  const image = document.getElementById("language-image");
 
-  let modoEditar = false;
-  let idEditar = null;
+  let editMode = false;
+  let idEdit = null;
 
-  const btnCrear = document.getElementById("btn-crear");
+  //Button to create a new course.
+  const btnCreate = document.getElementById("btn-create");
 
   const show = JSON.parse(localStorage.getItem("usuario"));
 
   if (show && show.rol === "coder") {
-    const btnCrearOculto = document.getElementById("btn-crear");
+    const btnCreateHidden = document.getElementById("btn-create");
 
-    if (btnCrearOculto) btnCrearOculto.style.display = "none";
+    if (btnCreateHidden) btnCreateHidden.style.display = "none";
   }
 
-  document.getElementById("cerrar-sesion").addEventListener("click", (e) => {
+  //Log out functionality.
+  document.getElementById("log-out").addEventListener("click", (e) => {
     e.preventDefault();
     localStorage.removeItem("usuario");
     renderStart();
   });
 
-  btnCrear.addEventListener("click", () => {
+  btnCreate.addEventListener("click", () => {
     form.style.display = form.style.display === "none" ? "block" : "none";
     form.reset();
-    modoEditar = false;
+    editMode = false;
   });
 
+  //Form to edit a course.
   form.addEventListener("submit", async () => {
-    const nuevoCurso = {
-      nombre: nombre.value,
-      descripcion: descripcion.value,
-      imagen: imagen.value,
+    const newCourse = {
+      name: name.value,
+      description: description.value,
+      image: image.value,
     };
 
-    if (modoEditar) {
-      await fetch(`${URL}/${idEditar}`, {
+    if (editMode) {
+      await fetch(`${URL}/${idEdit}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(nuevoCurso),
+        body: JSON.stringify(newCourse),
       });
     } else {
       await fetch(URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(nuevoCurso),
+        body: JSON.stringify(newCourse),
       });
     }
 
     form.reset();
     form.style.display = "none";
-    cargarCursos();
+    uploadCourses();
   });
 
-  async function cargarCursos() {
+  //Function to upload courses.
+  async function uploadCourses() {
     const res = await fetch(URL);
-    const cursos = await res.json();
+    const courses = await res.json();
 
-    grid.innerHTML = ""; // Limpiar
+    grid.innerHTML = ""; // Clean the grid before adding new courses.
 
-    cursos.forEach((curso) => {
+    //HTML structure of the course cards.
+    courses.forEach((course) => {
       const card = document.createElement("div");
-      card.className = "curso-card";
+      card.className = "course-card";
       card.innerHTML = `
-                <h3>${curso.nombre}</h3>
-                <img src="${curso.imagen}" alt="Imagen de ${curso.nombre}">
-                <p>${curso.descripcion}</p>
-                <button class="btn-editar">Editar</button>
-                <button class="btn-editar">inscribirse</button>
-                <button class="btn-eliminar">Eliminar</button>
+                <h3>${course.name}</h3>
+                <img src="${course.image}" alt="imagen de ${course.name}">
+                <p>${course.description}</p>
+                <button class="btn-edit">Editar</button>
+                <button class="btn-edit">inscribirse</button>
+                <button class="btn-delete">Eliminar</button>
             `;
 
-      const btnEditar = card.querySelector(".btn-editar");
-      const btnEliminar = card.querySelector(".btn-eliminar");
+      //Edit and delete functionality for each course.
+      const btnEdit = card.querySelector(".btn-edit");
+      const btnDelete = card.querySelector(".btn-delete");
 
       const showContent = JSON.parse(localStorage.getItem("usuario"));
 
         if (showContent && showContent.rol === "coder") {
-          const btnEditarOculto = card.querySelector(".btn-editar");
-          const btnEliminarOculto = card.querySelector(".btn-eliminar");
+          const btnEditHidden = card.querySelector(".btn-edit");
+          const btnDeleteHidden = card.querySelector(".btn-delete");
 
-          if(btnEditarOculto) btnEditarOculto.style.display = "none";
-          if (btnEliminarOculto) btnEliminarOculto.style.display = "none";
+          if(btnEditHidden) btnEditHidden.style.display = "none";
+          if (btnDeleteHidden) btnDeleteHidden.style.display = "none";
         }
 
-      btnEditar.addEventListener("click", () => {
-        nombre.value = curso.nombre;
-        descripcion.value = curso.descripcion;
-        imagen.value = curso.imagen;
+      btnEdit.addEventListener("click", () => {
+        name.value = course.name;
+        description.value = course.description;
+        image.value = course.image;
         form.style.display = "block";
-        modoEditar = true;
-        idEditar = curso.id;
+        editMode = true;
+        idEdit = course.id;
       });
 
-      btnEliminar.addEventListener("click", async () => {
+      btnDelete.addEventListener("click", async () => {
         if (confirm("¿Estás seguro de eliminar este lenguaje?")) {
-          await fetch(`${URL}/${curso.id}`, { method: "DELETE" });
-          cargarCursos();
+          await fetch(`${URL}/${course.id}`, { method: "DELETE" });
+          uploadCourses();
         }
       });
 
@@ -110,5 +122,5 @@ export function afterDashboard() {
     });
   }
 
-  cargarCursos();
+  uploadCourses();
 }

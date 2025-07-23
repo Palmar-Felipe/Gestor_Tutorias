@@ -1,66 +1,75 @@
+//This file handles the user registration functionality.
+
+//Imported view rendering function.
 import { renderLogin } from "../views/login";
 
+//Endpoint URL for the user records.
 const url = "http://localhost:3000/registros";
+
+//Exported function of the registration functionality.
 export function afterRegister(){
     const $name = document.getElementById("register-name");
     const $user = document.getElementById("register-username");
     const $email = document.getElementById("register-email");
-    const $cedula = document.getElementById("register-cedula");
+    const $doc = document.getElementById("register-doc");
     const $password = document.getElementById("register-password");
-    const $register = document.getElementById("registrar")
+    const $register = document.getElementById("register")
 
     $register.addEventListener("click", async (e) => {
-        e.preventDefault();             //prevents the page from reloading if it is in a form
+        e.preventDefault();             //Prevents the page from reloading if it is in a form.
         await registerUser();
     })
 
+    //Function to handle the user registration process, including validations.
     async function registerUser() {
 
-        const registrar = {
-            nombre: $name.value,
-            usuario: $user.value,
-            correo: $email.value,
-            documento: $cedula.value,
-            contrasena: $password.value,
+        const register = {
+            name: $name.value,
+            user: $user.value,
+            email: $email.value,
+            doc: $doc.value,
+            password: $password.value,
             rol: "coder"
         }
 
         if (
-            registrar.nombre === "" ||
-            registrar.usuario === "" ||
-            registrar.correo === "" ||
-            registrar.documento === "" ||
-            registrar.contrasena === ""
+            register.name === "" ||
+            register.user === "" ||
+            register.email === "" ||
+            register.doc === "" ||
+            register.password === ""
         ) {
             alert("completa todos los campos");
             return;
         }
 
+        //Check if the user already exists in the database.
         const reco = await fetch(url);
-        const buscaUsuario = await reco.json();
+        const searchUser = await reco.json();
 
-        const existe = buscaUsuario.some(
+        const exist = searchUser.some(
             (i) =>
-                i.usuario === registrar.usuario ||
-                i.correo === registrar.correo ||
-                i.documento === registrar.documento
+                i.user === register.user ||
+                i.email === register.email ||
+                i.doc === register.doc
 
         );
 
-        if (existe) {
+        if (exist) {
             alert("los datos ingresados ya se encuentras registrados por otro usuario")
             return;
         }
 
-        if (!/^\S+@\S+\.\S+$/.test(registrar.correo)) {
+        if (!/^\S+@\S+\.\S+$/.test(register.email)) {
             alert("Por favor, ingresa un correo electrónico válido.");
             return;
         }
 
+        //Create a new user in the database.
         const responde = await fetch(url, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(registrar)
+            body: JSON.stringify(register)
         });
 
         if (responde.ok) {
@@ -71,10 +80,11 @@ export function afterRegister(){
             alert("Intentelo de nuevo por favor")
         }
 
+        //Reset the form fields after successful registration.
         $name.value = "";
         $user.value = "";
         $email.value = "";
-        $cedula.value = "";
+        $doc.value = "";
         $password.value = "";
     };
 }

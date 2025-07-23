@@ -1,6 +1,4 @@
-
-
-
+//This file handles the 404 error page functionality.
 
 const messageTitle = document.querySelector("h2");
 const referrer = document.referrer;

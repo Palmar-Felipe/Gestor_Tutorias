@@ -1,46 +1,44 @@
+// This file handles the login functionality for the application.
 
+//Endpoint URL for the user records.
 const url = "http://localhost:3000/registros";
-export function afterLogin(){
-    
-    
-    //function of login
-    const $correo =document.getElementById("login-email");
-    const $contra =document.getElementById("login-password");
-    const $entrar=document.getElementById("enviar");
 
-    const save = JSON.parse(localStorage.getItem("correo"));
+//Exported function of the login functionality.
+export function afterLogin(){
+
+    const $email = document.getElementById("login-email");
+    const $password = document.getElementById("login-password");
+    const $enter = document.getElementById("send");
+
+    const save = JSON.parse(localStorage.getItem("email"));
     if (save){
         window.location.href="/dashboard";
     }
 
 
-    $entrar.addEventListener("click", function(i){
+    $enter.addEventListener("click", function(i){
         i.preventDefault();
         login();
         
     });
 
-
-
-
-    
-
+    //Function to handle the login process, including validations.
     async function login() {
 
-        if ($correo.value === "" || $contra.value === "") {
+        if ($email.value === "" || $password.value === "") {
             alert("Por favor, completa todos los campos.");
             return; // Evita que siga ejecutando si están vacíos
         };
 
-        const busca = await fetch(`${url}?correo=${$correo.value.trim()}`);
-        const sultado = await busca.json();
+        const search = await fetch(`${url}?email=${$email.value.trim()}`);
+        const response = await search.json();
 
-        if(sultado.length === 0){
+        if(response.length === 0){
             alert("Este usuario no existe, por favor regístrese");
 
         }else{
-            if(sultado[0].contrasena === $contra.value.trim()){
-                localStorage.setItem("usuario", JSON.stringify(sultado[0]));
+            if(response[0].passwordsena === $password.value.trim()){
+                localStorage.setItem("usuario", JSON.stringify(response[0]));
                 alert ("inicio de sesion correcto")
                 window.location.href ="/dashboard";
             }else{
