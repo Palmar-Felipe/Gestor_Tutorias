@@ -4,14 +4,14 @@
 import { renderLogin } from "../views/login";
 
 //Endpoint URL for the user records.
-const url = "http://localhost:3000/registros";
+const url = "http://localhost:3000/records";
 
 //Exported function of the registration functionality.
 export function afterRegister(){
     const $name = document.getElementById("register-name");
     const $user = document.getElementById("register-username");
     const $email = document.getElementById("register-email");
-    const $doc = document.getElementById("register-doc");
+    const $document = document.getElementById("register-doc");
     const $password = document.getElementById("register-password");
     const $register = document.getElementById("register")
 
@@ -27,7 +27,7 @@ export function afterRegister(){
             name: $name.value,
             user: $user.value,
             email: $email.value,
-            doc: $doc.value,
+            document: $document.value,
             password: $password.value,
             rol: "coder"
         }
@@ -36,7 +36,7 @@ export function afterRegister(){
             register.name === "" ||
             register.user === "" ||
             register.email === "" ||
-            register.doc === "" ||
+            register.document === "" ||
             register.password === ""
         ) {
             alert("completa todos los campos");
@@ -51,7 +51,7 @@ export function afterRegister(){
             (i) =>
                 i.user === register.user ||
                 i.email === register.email ||
-                i.doc === register.doc
+                i.document === register.document 
 
         );
 
@@ -84,7 +84,7 @@ export function afterRegister(){
         $name.value = "";
         $user.value = "";
         $email.value = "";
-        $doc.value = "";
+        $document.value = "";
         $password.value = "";
     };
 }

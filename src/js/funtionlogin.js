@@ -1,7 +1,7 @@
 // This file handles the login functionality for the application.
 
 //Endpoint URL for the user records.
-const url = "http://localhost:3000/registros";
+const url = "http://localhost:3000/records";
 
 //Exported function of the login functionality.
 export function afterLogin(){
@@ -37,7 +37,7 @@ export function afterLogin(){
             alert("Este usuario no existe, por favor regístrese");
 
         }else{
-            if(response[0].passwordsena === $password.value.trim()){
+            if(response[0].password === $password.value.trim()){
                 localStorage.setItem("usuario", JSON.stringify(response[0]));
                 alert ("inicio de sesion correcto")
                 window.location.href ="/dashboard";
