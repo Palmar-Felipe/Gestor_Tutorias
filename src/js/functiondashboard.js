@@ -1,7 +1,7 @@
 //This file shows the code for the dashboard functionality.
 
-//Imported view rendering function.
-import { renderStart } from "../views/start";
+//imported the auth
+import {auth} from "./auth";
 
 //Endpoint URL for the courses.
 const URL = "http://localhost:3000/languages"; // This changes to your API endpoint
@@ -31,8 +31,8 @@ export function afterDashboard() {
   //Log out functionality.
   document.getElementById("log-out").addEventListener("click", (e) => {
     e.preventDefault();
-    localStorage.removeItem("usuario");
-    renderStart();
+    auth.logout();
+
   });
 
   btnCreate.addEventListener("click", () => {

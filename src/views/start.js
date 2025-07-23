@@ -20,9 +20,7 @@ export function renderStart() {
       Únete al cambio. Crea sin límites.
       <span class="hashtag">#ThinkCode #InnovaTuMundo</span>
     </p>
-    <a href="/login" data-link>
-      <button id="start" class="join-btn">Únete con nosotros</button>
-    </a>
+    <a href="/login" id="start" class="join-btn" data-link> Únete con nosotros</a>
   </section>
 </main>
   `
