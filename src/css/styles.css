@@ -76,7 +76,7 @@ main {
 
 /* Estilos existentes que puedes mantener */
 .highlight {
-  color: #c39bd3;
+  color: #8e44ad;
   font-size: 48px;
 }
 
@@ -95,13 +95,13 @@ main {
 .hashtag {
   display: block;
   margin-top: 0.5rem;
-  color: #c39bd3;
+  color: #8e44ad;
   font-weight: bold;
 }
 
 .join-btn {
   padding: 10px 20px;
-  background-color: #c39bd3;
+  background-color: #8e44ad;
   border: none;
   color: white;
   font-weight: bold;
@@ -127,6 +127,6 @@ main {
 .message .hashtag {
   display: block;
   margin-top: 0.5rem;
-  color: #c39bd3;
+  color: #8e44ad;
   font-weight: bold;
 }
