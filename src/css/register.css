@@ -80,64 +80,41 @@ p{
     color: white    ;
 }
 
-/* Teléfonos pequeños */
+@media screen and (max-width: 1024px) {
+  main {
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 20px;
+    height: auto;
+  }
+
+  .right {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .login-box {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+/* Celulares y móviles */
 @media screen and (max-width: 600px) {
   body {
     background-position: center;
   }
 
-  main {
-    flex-direction: column;
-    padding: 20px;
-    height: auto;
-  }
-
-  .right .login-box {
+  .login-box {
     width: 90%;
-    padding: 20px;
+    padding: 25px;
   }
 
-  .login-box input {
-    width: 100%;
+  .login-box h2 {
+    font-size: 1.8rem;
   }
 
   .login-btn {
     width: 100%;
-  }
-}
-
-/* Tablets */
-@media screen and (min-width: 601px) and (max-width: 1024px) {
-  main {
-    flex-direction: column;
-    padding: 40px;
-    height: auto;
-  }
-
-  .right .login-box {
-    width: 70%;
-  }
-
-  .login-box input {
-    width: 95%;
-  }
-
-  .login-btn {
-    width: 80%;
-  }
-}
-
-/* Pantallas grandes */
-@media screen and (min-width: 1025px) {
-  .right .login-box {
-    width: 300px;
-  }
-
-  .login-box input {
-    width: 90%;
-  }
-
-  .login-btn {
-    width: 50%;
   }
 }

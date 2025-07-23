@@ -17,11 +17,20 @@
       "document": "12111",
       "password": "1",
       "role": "admin"
+    },
+    {
+      "id": "9c4e",
+      "name": "yoshira barros",
+      "user": "yoshira",
+      "email": "yoshira@gmail.com",
+      "document": "3122",
+      "password": "yoshi123",
+      "role": "coder"
     }
   ],
   "languages": [
     {
-      "name": "keke",
+      "name": "wilman el mas feo ",
       "description": "El \"DD\" se refiere al Número Discriminador del Documento. Es un número único en tu licencia de conducir que ayuda a identificar dónde y cuándo se emitió. Este número lo pueden usar las autoridades o otras agencias para verificar que tu licencia sea auténtica.",
       "image": "https://www.descuentoestudiante.com/uploads/wysiwyg/editor-20200415_105552rototom%20sun%20beach%20playas%20con%20fiesta.jpg",
       "id": "22a0"

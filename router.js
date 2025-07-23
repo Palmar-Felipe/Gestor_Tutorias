@@ -1,11 +1,11 @@
-import { afterLogin } from "./src/js/funtionlogin";
-import { renderStart } from "./src/views/start";
-import { renderLogin } from "./src/views/login";
-import { renderRegister } from "./src/views/register";
-import { renderDashboard } from "./src/views/dashboard";
-import { render404 } from "./src/views/404";
-import { afterDashboard } from "./src/js/functiondashboard";
-import { afterRegister } from "./src/js/funtionregister";
+import { afterLogin } from "./src/js/funtionlogin.js";
+import { renderStart } from "./src/views/start.js";
+import { renderLogin } from "./src/views/login.js";
+import { renderRegister } from "./src/views/register.js";
+import { renderDashboard } from "./src/views/dashboard.js";
+import { render404 } from "./src/views/404.js";
+import { afterDashboard } from "./src/js/functiondashboard.js";
+import { afterRegister } from "./src/js/funtionregister.js";
 
 
 

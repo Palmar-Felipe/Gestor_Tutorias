@@ -9,6 +9,7 @@ export function afterLogin(){
     const $email = document.getElementById("login-email");
     const $password = document.getElementById("login-password");
     const $enter = document.getElementById("send");
+    console.log("if")
 
     const save = JSON.parse(localStorage.getItem("email"));
     if (save){
@@ -24,7 +25,7 @@ export function afterLogin(){
 
     //Function to handle the login process, including validations.
     async function login() {
-
+        console.log("o")
         if ($email.value === "" || $password.value === "") {
             alert("Por favor, completa todos los campos.");
             return; // Evita que siga ejecutando si están vacíos
@@ -32,7 +33,7 @@ export function afterLogin(){
 
         const search = await fetch(`${url}?email=${$email.value.trim()}`);
         const response = await search.json();
-
+        console.log("por")
         if(response.length === 0){
             alert("Este usuario no existe, por favor regístrese");
 

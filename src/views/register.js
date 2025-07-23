@@ -6,7 +6,7 @@ export function renderRegister() {
   
   app.innerHTML=`
     
-    <main>
+
         <section class="right">
             <div class="login-box">
                 <h2>Crear cuenta</h2>
@@ -25,8 +25,8 @@ export function renderRegister() {
                 </form>
             </div>
         </section>
-    </main>
-    `;
+    
+    `
   
 }
 

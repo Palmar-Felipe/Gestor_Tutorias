@@ -5,8 +5,6 @@ export function renderLogin() {
   const app = document.getElementById("app")
   app.innerHTML=`
     
-    
-    <main>
         <section class="right">
             <div class="login-box">
                 <h2>Iniciar sesión</h2>
@@ -16,9 +14,7 @@ export function renderLogin() {
                 <p class="signup-text">¿No tienes cuenta? <a href="/register" data-link>Registrate aqui</a></p>
             </div>
         </section>
-    </main>
-    
-  
+   
   `;
   
 }
