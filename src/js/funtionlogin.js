@@ -10,12 +10,10 @@ import {auth} from "./auth.js";
 
 //Exported function of the login functionality.
 export function afterLogin() {
-    console.log("login.js init loaded");
 
     const $email = document.getElementById("login-email");
     const $password = document.getElementById("login-password");
     const $enter = document.getElementById("send");
-    console.log("imputs data loaded");
 
     // Validation of the correct existance of the form
     if (!$email || !$password) {
