@@ -39,12 +39,12 @@ const routes = {
 
 export function router() {
     // Guard validation
-    const canActivate = guard();
-    if (!canActivate) {
-        // The guard
-        router();
-        return;
-    };
+    // const canActivate = guard();
+    // if (!canActivate) {
+    //     // The guard
+    //     router();
+    //     return;
+    // };
     
     const path = window.location.pathname || '/';
     const app = document.getElementById('app');
