@@ -1,7 +1,7 @@
 //This file shows the code for the dashboard functionality.
 
 //imported the auth
-import {auth} from "./auth";
+import { auth } from "./auth";
 
 //Endpoint URL for the courses.
 const urlLanguage = "http://localhost:3000/languages"; // This changes to your API endpoint
@@ -14,6 +14,84 @@ export function afterDashboard() {
   const name = document.getElementById("language-name");
   const description = document.getElementById("language-description");
   const image = document.getElementById("language-image");
+  const create = document.getElementById("btn-create");
+
+  // --- show/hide formulary of new admin ---
+  const btnNewAdmin = document.getElementById("create-new-admin");
+  const formNewAdmin = document.getElementById("form");
+
+  // CORRECTION: Verify both elements exists before add listener
+  if (btnNewAdmin && formNewAdmin) {
+    formNewAdmin.style.display = "none";
+    btnNewAdmin.addEventListener("click", () => {
+      // Alternate between show and hide
+      formNewAdmin.style.display = formNewAdmin.style.display === "none" ? "block" : "none";
+    });
+  }
+
+  formNewAdmin.addEventListener("submit", async (d) => {
+    d.preventDefault();
+
+    const userName = document.getElementById("regisName");
+    const user = document.getElementById("regisUsername");
+    const email = document.getElementById("regisEmail");
+    const documentId = document.getElementById("reigisId");
+    const password = document.getElementById("regisPassword");
+
+    const data = {
+      name: userName.value,
+      user: user.value,
+      email: email.value,
+      document: documentId.value,
+      contrasena: password.value,
+      role: "admin"
+    };
+
+    if (
+      data.name === "" ||
+      data.user === "" ||
+      data.email === "" ||
+      data.document === "" ||
+      data.password === ""
+    ) {
+      alert("completa todos los campos");
+      return;
+    }
+
+    const reco = await fetch(url);
+    const searchUser = await reco.json();
+
+    const exist = searchUser.some(
+      (i) =>
+        i.user === data.user ||
+        i.email === data.email ||
+        i.document === data.document
+    );
+
+    if (exist) {
+      alert("los datos ingresados ya se encuentran registrados por otro usuario");
+      return;
+    }
+
+    if (!/^\S+@\S+\.\S+$/.test(data.email)) {
+      alert("Por favor, ingresa un correo electrónico válido.");
+      return;
+    }
+
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+      alert("Registro exitoso");
+      formNewAdmin.reset();
+      formNewAdmin.style.display = "none";
+    } else {
+      alert("Intentelo de nuevo por favor");
+    }
+  });
 
   let editMode = false;
   let idEdit = null;
@@ -324,7 +402,7 @@ export function afterDashboard() {
       const showContentAdmin = JSON.parse(localStorage.getItem("usuario"));
 
       if (showContentAdmin && showContentAdmin.role === "admin") {
-        const btnSubsHidden = card.querySelector(".btn-subscrib");
+        // const btnSubsHidden = card.querySelector(".btn-subscrib");
         if (btnSubsHidden) btnSubsHidden.style.display = "none";
       }
 
