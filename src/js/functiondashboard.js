@@ -399,14 +399,24 @@ export function afterDashboard() {
       }
 
       //Functionality for hidde the botons of subscribing, editing, and deleting based on user role.
-      const showContentAdmin = JSON.parse(localStorage.getItem("usuario"));
+      const showContentAdminNew = auth.getUser();
+
+      if (showContentAdminNew && showContentAdminNew.role === "coder") {
+        const btnNewAdminHidden = document.getElementById("create-new-admin");
+        const btnCreateHidden = document.getElementById("btn-create");
+
+        if (btnNewAdminHidden) btnNewAdminHidden.style.display = "none";
+        if (btnCreateHidden) btnCreateHidden.style.display = "none";
+      }
+
+      const showContentAdmin = auth.getUser();
 
       if (showContentAdmin && showContentAdmin.role === "admin") {
-        // const btnSubsHidden = card.querySelector(".btn-subscrib");
+        const btnSubsHidden = card.querySelector(".btn-subscrib");
         if (btnSubsHidden) btnSubsHidden.style.display = "none";
       }
 
-      const showContent = JSON.parse(localStorage.getItem("usuario"));
+      const showContent = auth.getUser();
 
       if (showContent && showContent.role === "coder") {
         const btnEditHidden = card.querySelector(".btn-edit");
