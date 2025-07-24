@@ -33,5 +33,15 @@
       "image": "https://soyhorizonte.com/wp-content/uploads/2020/10/Javascript-by-SoyHorizonte.jpg"
     }
   ],
-  "enrolled": []
+  "enrolled": [],
+  "comments": [
+    {
+      "id": "1c32",
+      "author": "pipe",
+      "text": "Muy buena tutoría",
+      "date": "2023-10-01T12:00:00Z",
+      "courseId": "1",
+      "parentId": null
+    }
+  ]
 }
