@@ -65,8 +65,7 @@ export function afterLogin() {
             auth.login(fakeToken, user);
 
             //alert
-            alert(`Welcome, ${user.username}!`);
-            renderDashboard();
+            alert(`Welcome, ${user.name}!`);
         } catch (error) {
             console.error("login error:", error);
             alert("Login failed. Please try again later.");

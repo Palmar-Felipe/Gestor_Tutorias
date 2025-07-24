@@ -1,13 +1,12 @@
 //This file handles the user registration functionality.
-
+import {router} from "../../router"
 //Imported view rendering function.
-import { renderLogin } from "../views/login";
 
 //Endpoint URL for the user records.
 const url = "http://localhost:3000/records";
 
 //Exported function of the registration functionality.
-export function afterRegister(){
+export function afterRegister() {
     const $name = document.getElementById("register-name");
     const $user = document.getElementById("register-username");
     const $email = document.getElementById("register-email");
@@ -51,7 +50,7 @@ export function afterRegister(){
             (i) =>
                 i.user === register.user ||
                 i.email === register.email ||
-                i.document === register.document 
+                i.document === register.document
 
         );
 
@@ -73,9 +72,13 @@ export function afterRegister(){
         });
 
         if (responde.ok) {
-            renderLogin() ;
+            ;
             alert("Registro exitoso")
-
+            if (responde.ok) {
+                window.history.pushState({}, "", "/login");
+                router();
+                return
+            };
         } else {
             alert("Intentelo de nuevo por favor")
         }

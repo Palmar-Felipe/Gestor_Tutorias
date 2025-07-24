@@ -1,7 +1,9 @@
 //Home view.
 
 //This exported function renders the home view on the element with id "app".
-export const renderStart = `
+export function renderStart(){
+  
+`
    <main class="main-layout">
   <!-- Lado izquierdo: logo -->
   <section class="logo-container">
@@ -21,3 +23,4 @@ export const renderStart = `
   </section>
 </main>
   `
+};

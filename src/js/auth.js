@@ -1,5 +1,5 @@
 import CryptoJS from 'crypto-js';
-import { renderStart } from '../views/start';
+import { router } from '../../router';
 
 const USER_KEY = 'user';
 const TOKEN_KEY = 'token';
@@ -14,12 +14,13 @@ export const auth = {
 
         localStorage.setItem(TOKEN_KEY, encryptedToken);
         localStorage.setItem(USER_KEY, encryptedUser);
+        router();
     },
 
     logout() {
         localStorage.removeItem(TOKEN_KEY);
         localStorage.removeItem(USER_KEY);
-        renderStart();
+        router();
     },
 
     isAuthenticated() {

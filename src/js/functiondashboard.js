@@ -33,7 +33,8 @@ export function afterDashboard() {
   document.getElementById("log-out").addEventListener("click", (e) => {
     e.preventDefault();
     auth.logout();
-
+    console.log("Already closed")
+    alert("session closed")
   });
 
   btnCreate.addEventListener("click", () => {

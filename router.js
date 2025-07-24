@@ -59,7 +59,5 @@ export function router() {
         if (typeof currentRoute.afterRender === 'function') {
             currentRoute.afterRender();
         }
-    } else {
-        app.innerHTML = render404;
     }
 }
