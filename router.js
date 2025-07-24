@@ -9,47 +9,53 @@ import { afterRegister } from "./src/js/funtionregister";
 
 
 
-
-const routes ={
-    "/":{
+const routes = {
+    "/": {
         showView: renderStart,
         private: false
     },
-    "/start":{
+    "/start": {
         showView: renderStart,
         private: false
     },
-    "/register":{
+    "/register": {
         showView: renderRegister,
         afterRender: afterRegister,
         private: false
     },
-    "/login":{
+    "/login": {
         showView: renderLogin,
         afterRender: afterLogin,
         private: false
     },
-    "/dashboard":{
+    "/dashboard": {
         showView: renderDashboard,
         afterRender: afterDashboard,
         private: false
     },
-   
+
 }
 
 
 export function router() {
+    // Guard validation
+    const canActivate = guard();
+    if (!canActivate) {
+        // The guard
+        router();
+        return;
+    };
+    
     const path = window.location.pathname || '/';
     const app = document.getElementById('app');
-    const currentRoute =routes[path];
+    const currentRoute = routes[path];
 
-    if (currentRoute){
-        app.innerHTML= currentRoute.showView ;
-        if(typeof currentRoute.afterRender === 'function'){
+    if (currentRoute) {
+        app.innerHTML = currentRoute.showView;
+        if (typeof currentRoute.afterRender === 'function') {
             currentRoute.afterRender();
         }
-    }else{
-        app.innerHTML= render404;
+    } else {
+        app.innerHTML = render404;
     }
-    
-}   
+}

@@ -1,8 +1,8 @@
-
-
+/* Base styles for body */
 body {
     background-image: url(../img/143265.webp);
-   background-size: cover;
+    background-size: cover;
+    background-position: center;
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', sans-serif;
@@ -15,41 +15,95 @@ body {
     text-align: center;
 }
 
+/* Main heading */
 h1 {
     font-size: 6rem;
     margin: 0;
-    color: orange;
+    font-weight: bold;
+    background: linear-gradient(to right, #8e44ad,  #375cc2); /* colores del texto */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
+/* Subheading */
 h2 {
     color: white;
     font-size: 2rem;
     margin: 10px 0;
 }
 
+/* Paragraph text */
 p {
     font-size: 1.2rem;
     color: white;
 }
 
+/* Button styling */
 .back-btn {
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: orange;
+    background: linear-gradient(to right, #8e44ad,  #375cc2); 
     color: white;
     border: none;
     border-radius: 6px;
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
     text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* subtle shadow */
 }
 
+/* Hover effect for button */
 .back-btn:hover {
     background-color: #e05500;
+    transform: scale(1.05); /* slight zoom */
 }
 
+/* Image styling */
 .pet-img {
     width: 200px;
     margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* soft shadow */
+}
+
+/* Responsive styles for mobile devices */
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .back-btn {
+        width: 90%;
+        font-size: 1rem;
+    }
+
+    .pet-img {
+        width: 150px;
+    }
+}
+
+/* Responsive styles for tablets */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    h1 {
+        font-size: 4.5rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .pet-img {
+        width: 180px;
+    }
 }

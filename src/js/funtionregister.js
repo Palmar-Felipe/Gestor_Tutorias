@@ -29,7 +29,7 @@ export function afterRegister(){
             email: $email.value,
             document: $document.value,
             password: $password.value,
-            rol: "coder"
+            role: "coder"
         }
 
         if (

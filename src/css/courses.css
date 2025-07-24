@@ -1,8 +1,12 @@
 body {
   background-image: url(../img/143265.webp);
   background-size: cover;
-  height: 700px;
+  min-height: 100vh;
+  height: auto; /* remove fixed height */
+  padding: 20px;
 }
+
+
 
 .courses-section {
   padding: 40px 20px;
@@ -18,9 +22,15 @@ body {
 
 .title {
   font-size: 50px;
-  color: white;
   margin-top: 10%;
   margin-bottom: 20px;
+  font-weight: bold;
+  background: linear-gradient(to right, #8e44ad,  #2a57d1); /* colores del texto */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
 } 
 
 .courses-grid {
@@ -161,16 +171,123 @@ a {
   from { opacity: 0; transform: translateY(-10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+/* Tablets (pantallas medianas, horizontal y vertical) */
+@media screen and (max-width: 1024px) {
+  .title {
+    font-size: 36px;
+    margin-top: 5%;
+  }
 
+  .courses-section {
+    padding: 30px 15px;
+  }
 
+  .courses-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
 
+  .course-card img {
+    height: 200px;
+  }
 
+  .btn-create-course {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
 
+  #form-course {
+    max-width: 90%;
+    padding: 15px;
+  }
 
+  #form-course input {
+    font-size: 15px;
+  }
 
+  #form-course button[type="submit"] {
+    font-size: 15px;
+  }
+}
 
+/* Celulares grandes (phablets, móviles modernos) */
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 30px;
+    margin-top: 10%;
+  }
 
+  .courses-section {
+    padding: 25px 10px;
+  }
 
+  .courses-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 
+  .course-card {
+    padding: 15px;
+  }
 
+  .course-card img {
+    height: 180px;
+  }
 
+  .btn-create-course {
+    font-size: 14px;
+    padding: 8px 14px;
+    margin-bottom: 20px;
+  }
+
+  .btn-log-out {
+    top: 10px;
+    right: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  #form-course {
+    width: 100%;
+    padding: 15px;
+    gap: 12px;
+  }
+
+  #form-course input {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  #form-course button[type="submit"] {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* Celulares pequeños (320px-480px) */
+@media screen and (max-width: 480px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .course-card h3 {
+    font-size: 18px;
+  }
+
+  .course-card p {
+    font-size: 13px;
+  }
+
+  .btn-create-course {
+    width: 100%;
+  }
+
+  #form-course {
+    padding: 10px;
+  }
+
+  #form-course input,
+  #form-course button[type="submit"] {
+    width: 100%;
+  }
+}
