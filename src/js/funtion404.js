@@ -1,5 +1,6 @@
 //This file handles the 404 error page functionality.
 
+export function after404() {
 const messageTitle = document.querySelector("h2");
 const referrer = document.referrer;
 
@@ -13,5 +14,6 @@ if (messageTitle) {
 
 //  Optional: auto redirect after 10 seconds
 setTimeout(() => {
-  window.location.href = "../../index.html"; // 👈 Adjust if needed
+  window.location.href = "../../index.html";
 }, 10000); // 10 seconds
+};

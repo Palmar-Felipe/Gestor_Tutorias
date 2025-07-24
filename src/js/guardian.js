@@ -5,7 +5,7 @@ export function guard() {
     const path = window.location.pathname || "/";
     const isAuth = auth.isAuthenticated();
 
-    // Rutas públicas manuales
+    // Public routes
     const publicPaths = ["/", "/start", "/login", "/register", "/404"];
 
     // Si está autenticado y trata de ir a login o register
@@ -22,6 +22,7 @@ export function guard() {
         return false;
     }
 
+    
     // Permitir el acceso
     return true;
 }

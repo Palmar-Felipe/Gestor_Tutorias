@@ -1,10 +1,7 @@
 //Home view.
 
 //This exported function renders the home view on the element with id "app".
-export function renderStart() {
-  const app = document.getElementById("app")
-  app.innerHTML = `
-  
+export const renderStart = `
    <main class="main-layout">
   <!-- Lado izquierdo: logo -->
   <section class="logo-container">
@@ -24,8 +21,3 @@ export function renderStart() {
   </section>
 </main>
   `
-}
-
-
-
-
