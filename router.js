@@ -1,6 +1,6 @@
 import { afterLogin } from "./src/js/funtionlogin";
 import { renderStart } from "./src/views/start";
-import { renderLogin } from "./src/views/login";
+import { renderLogin } from "./src/views/login.js";
 import { renderRegister } from "./src/views/register";
 import { renderDashboard } from "./src/views/dashboard";
 import { render404 } from "./src/views/404";
