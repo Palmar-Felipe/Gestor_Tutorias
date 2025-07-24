@@ -1,9 +1,8 @@
 //Error 404 Not Found view.
 
 //This exported function renders to a 404 error message on the element with id "app".
-export function render404() {
-  const app = document.getElementById("app")
-  app.innerHTML=`
+export const render404=
+  `
   <body>
 
     <h1>404</h1>
@@ -14,8 +13,6 @@ export function render404() {
     <a href="start" data-link  class="back-btn">Back to Home</a>
 
   </body>`
-
-}
 
 
 
